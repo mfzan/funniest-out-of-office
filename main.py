@@ -36,6 +36,8 @@ def main() -> int:
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
     path = os.path.join(out_dir, "entry.txt")
+    # No trailing newline: the gate counts every character (1-140),
+    # and the judge reads the file exactly as submitted.
     with open(path, "w", encoding="utf-8", newline="") as handle:
         handle.write(LINE)
     # The grader collects the output as another user, so the file
